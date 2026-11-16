@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Advis UF Hemodialisis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3f6;--card:#fff;--ink:#0f2230;--mut:#5a6f7d;--line:#dbe5ea;--acc:#0b6e99;--accbg:#e3f2f8;--warn:#9a4a14;--warnbg:#fbe9d8;--field:#f5f8fa;--hero1:#0b6e99;--hero2:#0f9e9b;--sh:0 1px 2px rgba(15,34,48,.06),0 10px 28px rgba(15,34,48,.07);--up:#a74a09;--upbg:#fdeedd;--eq:#47596a;--eqbg:#e8eef2;--dn:#0a7552;--dnbg:#dcf3ea;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1116;--card:#121b22;--ink:#e7ecef;--mut:#8fa3ae;--line:#223039;--acc:#5fc0e8;--accbg:#12303d;--warn:#f0b27a;--warnbg:#3a2a1a;--field:#0a1116;--hero1:#0e3a52;--hero2:#0b4a4a;--sh:0 1px 2px rgba(0,0,0,.4),0 12px 30px rgba(0,0,0,.35);--up:#f3b27a;--upbg:#3a2a1a;--eq:#a9b9c2;--eqbg:#1c2a33;--dn:#6fdcb0;--dnbg:#12372b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0a1116;--card:#121b22;--ink:#e7ecef;--mut:#8fa3ae;--line:#223039;--acc:#5fc0e8;--accbg:#12303d;--warn:#f0b27a;--warnbg:#3a2a1a;--field:#0a1116;--hero1:#0e3a52;--hero2:#0b4a4a;--sh:0 1px 2px rgba(0,0,0,.4),0 12px 30px rgba(0,0,0,.35);--up:#f3b27a;--upbg:#3a2a1a;--eq:#a9b9c2;--eqbg:#1c2a33;--dn:#6fdcb0;--dnbg:#12372b;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 "DM Sans",system-ui,sans-serif;transition:background .2s,color .2s}
+.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:#fff;padding:18px 16px 70px;border-radius:0 0 28px 28px}
+.hero>*{max-width:1080px;margin-left:auto;margin-right:auto}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;letter-spacing:.02em}
+.brand svg{width:26px;height:26px}
+.seg{display:inline-flex;background:rgba(255,255,255,.16);border-radius:99px;padding:3px}
+.seg button{background:transparent;border:0;color:#fff;padding:6px 13px;border-radius:99px;font-size:13px}
+.seg button[aria-pressed="true"]{background:#fff;color:#0b4a63;font-weight:700}
+h1{font:600 clamp(34px,6vw,54px)/1.02 "Cormorant Garamond",Georgia,serif;margin:0 auto 8px}
+.sub{margin:0 auto;opacity:.9;max-width:62ch}
+.wrap{max-width:1080px;margin:-46px auto 0;padding:0 16px 56px}
+h3{font:600 12px "DM Sans",sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);margin:0 0 12px}
+.formula{background:var(--card);border-radius:16px;box-shadow:var(--sh);padding:18px;margin-bottom:18px}
+.eq{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font:600 clamp(22px,4vw,30px)/1.2 "Cormorant Garamond",Georgia,serif;margin-bottom:14px}
+.eq input{width:76px;font:600 18px "DM Sans",sans-serif;text-align:center}
+.rules{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.rl{border-radius:10px;padding:10px 12px;font-size:13.5px}.rl b{display:block;font-size:17px}
+.rl.up{background:var(--upbg);color:var(--up)}.rl.eq2{background:var(--eqbg);color:var(--eq)}.rl.dn{background:var(--dnbg);color:var(--dn)}
+label{display:block;font-size:12.5px;color:var(--mut);margin-bottom:3px}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--field);border:1px solid var(--line);border-radius:9px;padding:8px 10px;min-width:0;transition:border-color .15s,box-shadow .15s}
+input:focus,textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--accbg)}
+input:focus-visible,textarea:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.g{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
+.layout{display:grid;gap:20px;grid-template-columns:1fr}
+@media(min-width:900px){.layout{grid-template-columns:1.25fr 1fr;align-items:start}.out{position:sticky;top:16px}}
+.card,.set{background:var(--card);border-radius:16px;box-shadow:var(--sh);padding:18px;margin-bottom:16px}
+.head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:14px}
+.head h2{font:600 24px/1.2 "Cormorant Garamond",Georgia,serif;margin:0;display:flex;align-items:center;gap:10px}
+.no{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accbg);color:var(--acc);font:700 14px "DM Sans",sans-serif}
+.w2{grid-column:span 2}.w3{grid-column:1/-1}
+.res{display:flex;align-items:center;gap:6px 16px;flex-wrap:wrap;margin-top:16px;padding:14px;border-radius:12px;background:var(--accbg)}
+.uf{font:600 46px/1 "Cormorant Garamond",Georgia,serif;color:var(--acc)}
+.uf small{font:500 15px "DM Sans",sans-serif;color:var(--mut)}
+.calc{color:var(--mut);font-size:13.5px}
+.tag{font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px}
+.tag.up{background:var(--upbg);color:var(--up)}.tag.eq2{background:var(--eqbg);color:var(--eq)}.tag.dn{background:var(--dnbg);color:var(--dn)}
+.chip{font-size:12.5px;background:var(--warnbg);color:var(--warn);padding:3px 10px;border-radius:99px}
+button{font:500 14px "DM Sans",sans-serif;border-radius:10px;padding:9px 16px;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);transition:transform .1s,background .15s}
+button:active{transform:scale(.97)}
+button.p{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:700}
+button.x{padding:4px 10px;color:var(--mut);font-size:13px}
+.acts{display:flex;gap:10px;flex-wrap:wrap}#add{flex:1;border-style:dashed;padding:13px;color:var(--acc)}#clr{padding:13px;color:var(--warn);border-color:var(--warn)}#clr.arm{background:var(--warn);color:var(--bg)}.empty{text-align:center;color:var(--mut);padding:28px 18px}
+pre{background:var(--field);border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 12px;white-space:pre-wrap;font:400 14px/1.6 "DM Sans",sans-serif;overflow-x:auto}
+.out{background:var(--card);border-radius:16px;box-shadow:var(--sh);padding:18px}
+.out button.p{width:100%;padding:12px}
+pre:empty::before{content:"Jawaban akan muncul di sini setelah ada pasien.";color:var(--mut)}
+details{background:var(--card);border-radius:16px;box-shadow:var(--sh);padding:14px 18px;margin-bottom:16px}
+summary{cursor:pointer;color:var(--acc);font-weight:700}
+textarea{min-height:140px;margin:10px 0}
+.note{font-size:12.5px;color:var(--mut);margin:8px 0 0}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="bar"><div class="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.2 6 10.5A6 6 0 0 1 6 13.5C6 9.2 12 3 12 3z"/></svg><span>HD Advis</span></div>
+<div class="seg" role="group" aria-label="Mode tampilan"><button data-th="light" aria-pressed="false">Terang</button><button data-th="auto" aria-pressed="true">Otomatis</button><button data-th="dark" aria-pressed="false">Gelap</button></div></div>
+<h1>Advis UF Hemodialisis</h1>
+<p class="sub">Masukkan laporan pasien HD per shift. UF dihitung otomatis dari perubahan berat badan, jawaban siap disalin.</p>
+</header>
+<div class="wrap">
+<div class="formula"><h3>Aturan UF</h3>
+<div class="eq"><span>UF (liter) = BB naik (kg) +</span><input id="off" inputmode="decimal" value="0,6" aria-label="Penambah UF (liter)"><span>L</span></div>
+<div class="rules"><div class="rl up">BB naik<b id="r1">naik + 0,6 L</b></div><div class="rl eq2">BB tetap<b id="r2">0,6 L</b></div><div class="rl dn">BB turun<b>0 L</b></div></div></div>
+
+<details id="pasteBox"><summary>Tempel laporan pasien</summary>
+<textarea id="paste" placeholder="Tempel laporan shift di sini (Tgl, nomor pasien, keluhan, TTV, BB, BB naik)"></textarea>
+<button class="p" id="parse">Baca laporan</button>
+<p class="note">Pasien yang ada sekarang akan diganti dengan hasil bacaan.</p></details>
+
+<div class="layout">
+<section>
+<div class="set"><h3>Parameter HD</h3><div class="g">
+<div><label for="tgl">Tanggal</label><input id="tgl" type="date"></div>
+<div><label for="shift">Shift</label><select id="shift"><option value="">Pilih</option><option value="1">Shift 1</option><option value="2">Shift 2</option><option value="3">Shift 3</option></select></div>
+<div><label for="dur">Durasi HD (jam)</label><input id="dur" inputmode="decimal"></div>
+<div><label for="qb">Qb</label><input id="qb"></div>
+<div><label for="qd">Qd</label><input id="qd"></div>
+<div><label for="hep">Heparin</label><input id="hep"></div>
+<div><label for="bik">Dialisat</label><input id="bik"></div>
+</div></div>
+<div id="list"></div>
+<div class="acts"><button id="add">Tambah pasien</button><button id="clr">Hapus semua data</button></div>
+</section>
+
+<section class="out"><h3>Jawaban siap salin</h3>
+<pre id="out" aria-live="polite"></pre>
+<button class="p" id="copy">Salin jawaban</button>
+<p class="note" id="msg" role="status"></p>
+</section>
+</div>
+</div>
+
+<script>
+var S={tgl:"31/10/2026",shift:"2",dur:"5",qb:"150-250",qd:"500",hep:"standard",bik:"Bicarbonat",off:"0,6",pts:[]};
+var SAMPLE="Tgl 31/10/2026\nMelaporkan pasien HD shif 2\n1. Tn Pranoto adi/ 58th\nKel. Kaki bengkak, wajah sembab\nT.120/70\nN.86\nS.36\nRr.20\nSpo2 99%\nAsites (-)\nOedem (+) derajat 1\nBB 66,50kg\nBB naik 0,15 kg\n2. Ny. Dian / 45th\nKel. Wajah sembab, perut membesar\nT.140/80\nN.85\nS.36\nRr.20\nSpo2 99%\nAsites (+)\nOedem (-)\nBB 51,20 kg\nBB naik 1,55 kg\n3. Tn. Mustofa / 48th\nKel. Badan lemas, wajahh sembab\nT.150/80\nN.84\nS.36\nRr.20\nSpo2 99 %\nAsites (-)\nOedem (-)\nBB 55,40kg\nBB naik 2,25 kg\n4. Tn. Indra / 52th\nKel. Wajah sembab, badan lemas, batuk\nT.140/80\nN.85\nS.36\nRr.20\nSpo2 99 %\nAsites (-)\nOedem (-)\nBB. 562,25kg\nBB naik 0,45kg";
+var $=function(id){return document.getElementById(id)};
+function num(s){var v=parseFloat(String(s).replace(",","."));return isNaN(v)?null:v}
+function fmt(n){return String(parseFloat(n.toFixed(2))).replace(".",",")}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;")}
+function blank(){return {nama:"",umur:"",kel:"",td:"",n:"",s:"",rr:"",spo2:"",asites:"(-)",oedem:"(-)",hb:"",bb:"",naik:""}}
+function uf(p){var k=num(p.naik),o=num(S.off);if(k===null||o===null)return null;if(k<0)return 0;if(k===0)return o;return k+o}
+
+function parse(t){
+  t=t.replace(/\\/g,"");var d=t.match(/Tgl\.?\s*(\d{1,2}\/\d{1,2}\/\d{4})/i),sh=t.match(/shif\w*\s*(\d)/i);
+  if(d)S.tgl=d[1];if(sh)S.shift=sh[1];
+  var pts=[],c=null;
+  t.split(/\r?\n/).forEach(function(l){
+    l=l.trim();if(!l)return;var m;
+    if((m=l.match(/^\d+\s*[.)]\s*(.+)$/))){c=blank();pts.push(c);var a=m[1].match(/^(.*?)\s*\/\s*(\d+)\s*th/i);if(a){c.nama=a[1].trim();c.umur=a[2]}else c.nama=m[1];return}
+    if(!c)return;
+    if((m=l.match(/^Kel\.?\s*(.*)/i)))c.kel=m[1];
+    else if((m=l.match(/^T\.?\s*(\d+\/\d+)/)))c.td=m[1];
+    else if((m=l.match(/^Rr\.?\s*(\d+)/i)))c.rr=m[1];
+    else if((m=l.match(/^Spo2\s*([\d,.]+)/i)))c.spo2=m[1];
+    else if((m=l.match(/^Asites\s*(\([+-]\))/i)))c.asites=m[1];
+    else if((m=l.match(/^Oedem\s*(\([+-]\)\s*.*)/i)))c.oedem=m[1].trim();
+    else if((m=l.match(/^BB\s*naik\s*([\d,.]+)/i)))c.naik=m[1];
+    else if((m=l.match(/^BB\s*turun\s*([\d,.]+)/i)))c.naik="-"+m[1];
+    else if(/^BB\s*tetap/i.test(l))c.naik="0";
+    else if((m=l.match(/^BB\.?\s*([\d,.]+)/i)))c.bb=m[1];
+    else if((m=l.match(/^Hb\.?\s*[:=]?\s*([\d,.]+)/i)))c.hb=m[1];
+    else if((m=l.match(/^N\.?\s*(\d+)/)))c.n=m[1];
+    else if((m=l.match(/^S\.?\s*([\d,.]+)/)))c.s=m[1];
+  });
+  return pts;
+}
+
+var F=[["nama","Nama","w2"],["umur","Umur (th)",""],["kel","Keluhan","w3"],["td","TD",""],["n","Nadi",""],["s","Suhu",""],["rr","RR",""],["spo2","SpO2 (%)",""],["asites","Asites",""],["oedem","Oedem","w2"],["hb","Hb (g/dL)",""],["bb","BB (kg)",""],["naik","BB naik (kg, minus bila turun)","w2"]];
+function render(){
+  $("list").innerHTML=!S.pts.length?'<div class="card empty">Belum ada pasien. Tempel laporan atau tambah pasien.</div>':S.pts.map(function(p,i){
+    return '<div class="card"><div class="head"><h2>Pasien '+(i+1)+'</h2><button class="x" data-del="'+i+'" aria-label="Hapus pasien '+(i+1)+'">Hapus</button></div><div class="g">'+
+    F.map(function(f){return '<div class="'+f[2]+'"><label>'+f[1]+'</label><input data-i="'+i+'" data-k="'+f[0]+'" value="'+esc(p[f[0]])+'"></div>'}).join("")+
+    '</div><div class="res" id="r'+i+'"></div></div>'}).join("");
+  update();
+}
+function tr(p){var h=num(p.hb);if(h===null)return "";return h<7?"Transfusi prc 2 bag durante HD premed diphenhydramin 1":h<9?"Transfusi prc 1 bag durante HD premed diphenhydramin 1":""}
+function tg(p){var k=num(p.naik);return k<0?'<span class="tag dn">BB turun</span>':k===0?'<span class="tag eq2">BB tetap</span>':'<span class="tag up">BB naik</span>'}
+function update(){
+  var o=num(S.off);if(o!==null){$("r1").textContent="naik + "+fmt(o)+" L";$("r2").textContent=fmt(o)+" L"}
+  S.pts.forEach(function(p,i){
+    var u=uf(p),h="",bb=num(p.bb);
+    if(u===null)h='<span class="calc">Isi BB naik untuk menghitung UF.</span>';
+    else{
+      h=tg(p)+'<div class="uf">'+fmt(u)+'<small> L</small></div><div class="calc">'+(num(p.naik)<0?'BB turun, UF 0 L':num(p.naik)===0?'BB tetap, UF '+fmt(num(S.off))+' L':fmt(num(p.naik))+' + '+fmt(num(S.off))+' kg')+'</div>';
+      if(bb&&bb<=200&&u>0){var r=u*1000/(num(S.dur)||5)/bb;h+='<div class="calc">'+r.toFixed(1).replace(".",",")+' mL/kg/jam</div>';if(r>13)h+='<span class="chip">UF rate di atas 13 mL/kg/jam</span>'}
+    }
+    var t=tr(p);if(t)h+='<span class="chip">PRC '+(num(p.hb)<7?2:1)+' bag (Hb '+esc(p.hb)+')</span>';
+    if(bb&&bb>200)h+='<span class="chip">BB '+esc(p.bb)+' kg tampak salah ketik, periksa lagi</span>';
+    $("r"+i).innerHTML=h;
+  });
+  var L=["Selamat sore","","Melaporkan pasien HD shif "+S.shift,"","Tgl "+S.tgl,""];
+  S.pts.forEach(function(p,i){var u=uf(p);
+    L.push((i+1)+". "+p.nama+"/ "+p.umur+"th","HD "+S.dur+" jam","Uf "+(u===null?"-":fmt(u))+" ltr","Qb "+S.qb,"Qd "+S.qd,"Heparin "+S.hep,S.bik);var t=tr(p);if(t)L.push(t);L.push("")});
+  L.push("Terima kasih");
+  $("out").textContent=S.pts.length?L.join("\n"):"";
+}
+var G={shift:"shift",dur:"dur",qb:"qb",qd:"qd",hep:"hep",bik:"bik"};
+Object.keys(G).forEach(function(k){$(G[k]).value=S[k];$(G[k]).addEventListener("input",function(e){S[k]=e.target.value;update()})});
+$("off").addEventListener("input",function(e){S.off=e.target.value;update()});
+function toIso(s){var m=String(s).match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);return m?m[3]+"-"+("0"+m[2]).slice(-2)+"-"+("0"+m[1]).slice(-2):""}
+function fromIso(v){var m=String(v).match(/(\d{4})-(\d\d)-(\d\d)/);return m?m[3]+"/"+m[2]+"/"+m[1]:""}
+$("tgl").value=toIso(S.tgl);$("tgl").addEventListener("input",function(e){S.tgl=fromIso(e.target.value);update()});
+$("list").addEventListener("input",function(e){var t=e.target;if(t.dataset.k){S.pts[t.dataset.i][t.dataset.k]=t.value;update()}});
+$("list").addEventListener("click",function(e){var d=e.target.dataset.del;if(d!==undefined){S.pts.splice(+d,1);render()}});
+$("add").onclick=function(){S.pts.push(blank());render()};
+var armT;function rst(){clearTimeout(armT);var b=$("clr");b.classList.remove("arm");b.textContent="Hapus semua data"}
+$("clr").onclick=function(){var b=$("clr");if(!b.classList.contains("arm")){b.classList.add("arm");b.textContent="Yakin? Klik lagi untuk hapus";armT=setTimeout(rst,4000);return}
+  rst();S.pts=[];S.tgl="";S.shift="";$("tgl").value="";$("shift").value="";$("paste").value="";render();$("msg").textContent="Semua data pasien sudah dihapus."};
+$("parse").onclick=function(){var p=parse($("paste").value);if(!p.length){$("msg").textContent="Tidak ada pasien terbaca. Pastikan tiap pasien diawali nomor, misalnya 1. Tn Budi/ 50th.";return}
+  S.pts=p;$("tgl").value=toIso(S.tgl);$("shift").value=S.shift;render();$("pasteBox").open=false;$("msg").textContent=p.length+" pasien dibaca."};
+$("copy").onclick=function(){var t=$("out").textContent;if(!t){$("msg").textContent="Belum ada jawaban untuk disalin.";return}
+  function ok(){$("msg").textContent="Jawaban tersalin."}
+  function fb(){var a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");ok()}catch(e){$("msg").textContent="Gagal menyalin, blok teks lalu salin manual."}a.remove()}
+  try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}};
+function setTheme(t){var r=document.documentElement;if(t==="auto")r.removeAttribute("data-theme");else r.setAttribute("data-theme",t);document.querySelectorAll("[data-th]").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.th===t))});try{localStorage.setItem("th",t)}catch(e){}}
+var t0="auto";try{t0=localStorage.getItem("th")||"auto"}catch(e){}
+setTheme(t0);
+document.querySelector(".seg").addEventListener("click",function(e){var t=e.target.dataset.th;if(t)setTheme(t)});
+S.pts=parse(SAMPLE);render();
+</script>
+</body>
+</html>
